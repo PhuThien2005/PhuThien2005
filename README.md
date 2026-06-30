@@ -1,7 +1,4 @@
-<!-- START_SECTION:github-readme-pets-cat -->
-<img align="right" src="assets/pet_cat.svg" width="100" alt="Luna the Cat" />
-<!-- END_SECTION:github-readme-pets-cat -->
-# Hi 👋, I'm Dang Phu Thien
+# Hi 👋, I'm Dang Phu Thien <!-- START_SECTION:github-readme-pets-cat --><img src="assets/pet_cat.svg" width="60" align="center" alt="Luna the Cat" /><!-- END_SECTION:github-readme-pets-cat -->
 
 ### A Java developer
 
@@ -19,10 +16,7 @@
 
 ---
 
-<!-- START_SECTION:github-readme-pets-dog -->
-<img align="right" src="assets/pet_dog.svg" width="100" alt="Buster the Dog" />
-<!-- END_SECTION:github-readme-pets-dog -->
-## 🛠 Tech Stack
+## 🛠 Tech Stack <!-- START_SECTION:github-readme-pets-dog --><img src="assets/pet_dog.svg" width="60" align="center" alt="Buster the Dog" /><!-- END_SECTION:github-readme-pets-dog -->
 
 **Languages**
 
@@ -60,10 +54,7 @@
 
 ---
 
-<!-- START_SECTION:github-readme-pets-crab -->
-<img align="right" src="assets/pet_crab.svg" width="100" alt="Ferris the Crab" />
-<!-- END_SECTION:github-readme-pets-crab -->
-### 📊 Thống kê hoạt động
+### 📊 Thống kê hoạt động <!-- START_SECTION:github-readme-pets-crab --><img src="assets/pet_crab.svg" width="60" align="center" alt="Ferris the Crab" /><!-- END_SECTION:github-readme-pets-crab -->
 
 <p align="center">
   <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs?username=PhuThien2005&show_icons=true&locale=en&layout=compact&include_orgs=true&count_private=true" alt="Top Langs" />
