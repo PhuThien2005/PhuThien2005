@@ -63,3 +63,5 @@
 <p align="center">
   <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=PhuThien2005&show_icons=true&locale=en&theme=radial" alt="GitHub Stats" />
 </p>
+<!-- START_SECTION:github-readme-pets -->
+<!-- END_SECTION:github-readme-pets -->
