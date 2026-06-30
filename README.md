@@ -1,4 +1,4 @@
-# Hi 👋, I'm Dang Phu Thien <!-- START_SECTION:github-readme-pets-cat --><img src="assets/pet_cat.svg" width="60" align="center" alt="Luna the Cat" /><!-- END_SECTION:github-readme-pets-cat -->
+# Hi 👋, I'm Dang Phu Thien <!-- START_SECTION:github-readme-pets-duck --><img src="assets/pet_duck.svg" width="60" align="center" alt="Rubber Duck" /><!-- END_SECTION:github-readme-pets-duck -->
 
 ### A Java developer
 
@@ -54,7 +54,7 @@
 
 ---
 
-### 📊 Thống kê hoạt động <!-- START_SECTION:github-readme-pets-crab --><img src="assets/pet_crab.svg" width="60" align="center" alt="Ferris the Crab" /><!-- END_SECTION:github-readme-pets-crab -->
+### 📊 Thống kê hoạt động <!-- START_SECTION:github-readme-pets-panda --><img src="assets/pet_panda.svg" width="60" align="center" alt="Panda" /><!-- END_SECTION:github-readme-pets-panda -->
 
 <p align="center">
   <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs?username=PhuThien2005&show_icons=true&locale=en&layout=compact&include_orgs=true&count_private=true" alt="Top Langs" />
