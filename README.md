@@ -75,25 +75,25 @@
         <br />
         <strong>Luna</strong> (Cat)
         <br />
-        <sub><i>is watching birds outside the window 🐦</i></sub>
+        <sub><i>is playing with a colorful ball of yarn 🧶</i></sub>
       </td>
       <td align="center" width="180">
-        <img src="assets/dog_walk.gif" width="64" height="64" alt="Dog" />
+        <img src="assets/dog_ball.gif" width="64" height="64" alt="Dog" />
         <br />
         <strong>Buster</strong> (Dog)
         <br />
-        <sub><i>is happily walking around the yard 🐾</i></sub>
+        <sub><i>is happily playing fetch with a ball 🥎</i></sub>
       </td>
       <td align="center" width="180">
-        <img src="assets/crab_idle.gif" width="64" height="64" alt="Crab" />
+        <img src="assets/crab_walk.gif" width="64" height="64" alt="Crab" />
         <br />
         <strong>Ferris</strong> (Crab)
         <br />
-        <sub><i>is waving its little pincers friendly ✌️</i></sub>
+        <sub><i>is crawling sideways across the grass 🦀</i></sub>
       </td>
     </tr>
   </table>
   <br />
-  <p><sub>Last updated: 15:27 30/06/2026 (GMT+7)</sub></p>
+  <p><sub>Last updated: 15:30 30/06/2026 (GMT+7)</sub></p>
 </div>
 <!-- END_SECTION:github-readme-pets -->
