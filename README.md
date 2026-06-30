@@ -4,15 +4,14 @@
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=PhuThien2005" alt="PhuThien2005" /></a> </p>
 
-- 🌱 I'm currently learning **Java Spring boot**
-- 📫 How to reach me **dangphuthien2005@gmail.com**
-- 📄 Know about my experiences **[https://drive.google.com/file/d/1ATU4L6hUITYdeSWdvW2P4TCGmIy_4wTB/view?usp=sharing](https://drive.google.com/file/d/1ATU4L6hUITYdeSWdvW2P4TCGmIy_4wTB/view?usp=sharing)**
+- 🌱 I'm currently learning **Java Spring Boot**
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://github.com/PhuThien2005" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg" alt="PhuThien2005" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/phuthien2005/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/phuthien2005/" height="30" width="40" /></a>
-</p>
+### Connect with me:
+
+[<img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail" />](mailto:dangphuthien2005@gmail.com)
+[<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />](https://linkedin.com/in/phuthien2005/)
+[<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />](https://github.com/PhuThien2005)
+[<img src="https://img.shields.io/badge/Resume-4285F4?style=for-the-badge&logo=google-drive&logoColor=white" alt="Resume" />](https://drive.google.com/file/d/1ATU4L6hUITYdeSWdvW2P4TCGmIy_4wTB/view?usp=sharing)
 
 ---
 
@@ -54,14 +53,12 @@
 
 ---
 
-### 📊 Thống kê hoạt động <!-- START_SECTION:github-readme-pets-panda --><img src="assets/pet_panda.svg" width="60" align="center" alt="Panda" /><!-- END_SECTION:github-readme-pets-panda -->
+### 📊 GitHub Statistics <!-- START_SECTION:github-readme-pets-panda --><img src="assets/pet_panda.svg" width="60" align="center" alt="Panda" /><!-- END_SECTION:github-readme-pets-panda -->
 
 <p align="center">
-  <img src="https://github-stats-extended-beta.vercel.app/api/top-langs?username=PhuThien2005&show_icons=true&locale=en&layout=compact&include_orgs=true&count_private=true" alt="Top Langs" />
+  <img src="https://github-stats-extended-beta.vercel.app/api/top-langs?username=PhuThien2005&show_icons=true&locale=en&layout=compact&include_orgs=true&count_private=true&theme=radial" alt="Top Langs" />
 </p>
-[![GitHub Stats](https://github-stats-extended.vercel.app/api/top-langs?username=PhuThien2005&layout=donut&langs_count=5&theme=dark)](https://github-stats-extended.vercel.app/api/top-langs?username=PhuThien2005&layout=donut&langs_count=5&theme=dark)
 
 <p align="center">
-  <img src="https://github-stats-extended-beta.vercel.app/api?username=PhuThien2005&show_icons=true&locale=en&theme=radial" alt="GitHub Stats" />
+  <img src="https://github-stats-extended-beta.vercel.app/api?username=PhuThien2005&show_icons=true&locale=en&theme=radial&include_all_commits=true" alt="GitHub Stats" />
 </p>
-
