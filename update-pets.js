@@ -3,12 +3,11 @@ import path from 'path';
 
 const readmePath = path.resolve('README.md');
 const assetsDir = path.resolve('assets');
-const playroomSvgPath = path.join(assetsDir, 'playroom.svg');
 
 function main() {
-  console.log("Generating dynamic 15s switching SVG Playroom (minimalist)...");
+  console.log("Generating three separate borderless pixel pet SVGs...");
 
-  // Read all assets as Base64 to embed them directly in the SVG
+  // Read all assets as Base64 to embed them directly in the SVGs
   const catBase64 = fs.readFileSync(path.join(assetsDir, 'cat.svg'), 'base64');
   
   const dogWalkBase64 = fs.readFileSync(path.join(assetsDir, 'dog_walk.gif'), 'base64');
@@ -21,84 +20,88 @@ function main() {
   const crabRunBase64 = fs.readFileSync(path.join(assetsDir, 'crab_run.gif'), 'base64');
   const crabBallBase64 = fs.readFileSync(path.join(assetsDir, 'crab_ball.gif'), 'base64');
 
-  // 1. Cat (Luna) - 60s continuous 2D animation cycle (walks, jumps on shelf, sits, jumps down, walks back)
-  const catSvg = `
+  // 1. Cat (Luna) SVG - Walks back and forth, jumping cycle
+  const catSvgContent = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" width="120" height="80" style="background: transparent;">
   <g>
-    <!-- Translate cat in 2D space: walks on ground, jumps to shelf (x: 250, y: 80), sits, jumps down, walks back -->
+    <!-- Walks back and forth across the 120px width -->
     <animateTransform attributeName="transform" type="translate" 
-      values="82 138; 232 138; 282 80; 282 80; 312 138; 82 138" 
-      keyTimes="0; 0.25; 0.28; 0.58; 0.61; 1.0" 
-      dur="60s" repeatCount="indefinite" />
+      values="32 38; 88 38; 32 38" 
+      dur="12s" repeatCount="indefinite" />
     <g>
       <!-- Flip scale horizontal according to movement direction -->
       <animateTransform attributeName="transform" type="scale" 
-        values="1 1; 1 1; -1 1; -1 1; 1 1; 1 1; -1 1; -1 1; 1 1" 
-        keyTimes="0; 0.249; 0.25; 0.579; 0.58; 0.609; 0.61; 0.999; 1.0" 
-        dur="60s" repeatCount="indefinite" />
+        values="1 1; 1 1; -1 1; -1 1; 1 1" 
+        keyTimes="0; 0.49; 0.50; 0.99; 1.0" 
+        dur="12s" repeatCount="indefinite" />
       <image href="data:image/svg+xml;base64,${catBase64}" x="-32" y="-32" width="64" height="64" />
     </g>
   </g>
-  `;
+</svg>
+`.trim();
 
-  // 2. Dog (Buster) - 60s state switching (15s walk -> 15s idle -> 15s lie -> 15s ball)
-  const dogSvg = `
+  // 2. Dog (Buster) SVG - Cycles actions every 15s
+  const dogSvgContent = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" width="120" height="80" style="background: transparent;">
   <!-- Phase 1: Walk (0s - 15s) -->
   <g>
     <animate attributeName="opacity" values="1;0;0" keyTimes="0;0.25;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
     <g>
       <animateTransform attributeName="transform" type="translate" 
-        values="132 138; 432 138; 132 138" 
-        dur="15s" repeatCount="indefinite" />
+        values="32 38; 88 38; 32 38" 
+        dur="10s" repeatCount="indefinite" />
       <g>
         <animateTransform attributeName="transform" type="scale" 
           values="1 1; 1 1; -1 1; -1 1; 1 1" 
           keyTimes="0; 0.49; 0.50; 0.99; 1.0" 
-          dur="15s" repeatCount="indefinite" />
+          dur="10s" repeatCount="indefinite" />
         <image href="data:image/gif;base64,${dogWalkBase64}" x="-32" y="-32" width="64" height="64" />
       </g>
     </g>
   </g>
 
   <!-- Phase 2: Idle (15s - 30s) -->
-  <g transform="translate(432 138)">
+  <g transform="translate(60 38)">
     <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.25;0.50;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
     <image href="data:image/gif;base64,${dogIdleBase64}" x="-32" y="-32" width="64" height="64" />
   </g>
 
   <!-- Phase 3: Lie Down/Sleep (30s - 45s) -->
-  <g transform="translate(332 138)">
+  <g transform="translate(60 38)">
     <animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;0.50;0.75;0.7501;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
     <image href="data:image/gif;base64,${dogLieBase64}" x="-32" y="-32" width="64" height="64" />
   </g>
 
   <!-- Phase 4: Play with Ball (45s - 60s) -->
-  <g transform="translate(532 138)">
+  <g transform="translate(60 38)">
     <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.75;0.7501;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
     <image href="data:image/gif;base64,${dogBallBase64}" x="-32" y="-32" width="64" height="64" />
   </g>
-  `;
+</svg>
+`.trim();
 
-  // 3. Crab (Ferris) - 60s state switching (15s walk -> 15s idle -> 15s run -> 15s ball)
-  const crabSvg = `
+  // 3. Crab (Ferris) SVG - Cycles actions every 15s
+  const crabSvgContent = `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 80" width="120" height="80" style="background: transparent;">
   <!-- Phase 1: Walk (0s - 15s) -->
   <g>
     <animate attributeName="opacity" values="1;0;0" keyTimes="0;0.25;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
     <g>
       <animateTransform attributeName="transform" type="translate" 
-        values="432 138; 732 138; 432 138" 
-        dur="15s" repeatCount="indefinite" />
+        values="32 38; 88 38; 32 38" 
+        dur="10s" repeatCount="indefinite" />
       <g>
         <animateTransform attributeName="transform" type="scale" 
           values="1 1; 1 1; -1 1; -1 1; 1 1" 
           keyTimes="0; 0.49; 0.50; 0.99; 1.0" 
-          dur="15s" repeatCount="indefinite" />
+          dur="10s" repeatCount="indefinite" />
         <image href="data:image/gif;base64,${crabWalkBase64}" x="-32" y="-32" width="64" height="64" />
       </g>
     </g>
   </g>
 
   <!-- Phase 2: Idle (15s - 30s) -->
-  <g transform="translate(732 138)">
+  <g transform="translate(60 38)">
     <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.25;0.50;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
     <image href="data:image/gif;base64,${crabIdleBase64}" x="-32" y="-32" width="64" height="64" />
   </g>
@@ -108,85 +111,82 @@ function main() {
     <animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;0.50;0.75;0.7501;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
     <g>
       <animateTransform attributeName="transform" type="translate" 
-        values="732 138; 232 138; 732 138" 
-        dur="5s" repeatCount="indefinite" />
+        values="88 38; 32 38; 88 38" 
+        dur="4s" repeatCount="indefinite" />
       <g>
         <animateTransform attributeName="transform" type="scale" 
           values="-1 1; -1 1; 1 1; 1 1; -1 1" 
           keyTimes="0; 0.49; 0.50; 0.99; 1.0" 
-          dur="5s" repeatCount="indefinite" />
+          dur="4s" repeatCount="indefinite" />
         <image href="data:image/gif;base64,${crabRunBase64}" x="-32" y="-32" width="64" height="64" />
       </g>
     </g>
   </g>
 
   <!-- Phase 4: Soccer Ball (45s - 60s) -->
-  <g transform="translate(232 138)">
+  <g transform="translate(60 38)">
     <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.75;0.7501;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
     <image href="data:image/gif;base64,${crabBallBase64}" x="-32" y="-32" width="64" height="64" />
   </g>
-  `;
-
-  // Build the complete animated SVG playroom banner
-  const playroomSvg = `
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="100%" height="200" style="background: transparent; font-family: monospace;">
-  <!-- Room background decorations -->
-  <!-- Cozy Rug -->
-  <ellipse cx="400" cy="170" rx="120" ry="14" fill="#808080" opacity="0.15" />
-  
-  <!-- Window -->
-  <rect x="480" y="30" width="80" height="60" fill="#add8e6" opacity="0.15" rx="4" />
-  <rect x="480" y="30" width="80" height="60" fill="none" stroke="#cccccc" stroke-width="2" opacity="0.4" rx="4" />
-  <line x1="520" y1="30" x2="520" y2="90" stroke="#cccccc" stroke-width="2" opacity="0.4" />
-  <line x1="480" y1="60" x2="560" y2="60" stroke="#cccccc" stroke-width="2" opacity="0.4" />
-
-  <!-- Ledge/Shelf for the Cat -->
-  <rect x="250" y="112" width="64" height="6" fill="#8B4513" opacity="0.5" rx="2" />
-  <line x1="260" y1="118" x2="260" y2="135" stroke="#8B4513" stroke-width="2" opacity="0.5" />
-  <line x1="304" y1="118" x2="304" y2="135" stroke="#8B4513" stroke-width="2" opacity="0.5" />
-
-  <!-- Room floor line -->
-  <line x1="0" y1="170" x2="800" y2="170" stroke="#cccccc" stroke-width="2" stroke-dasharray="8 6" opacity="0.6" />
-  
-  <!-- Pets -->
-  ${catSvg.trim()}
-  ${dogSvg.trim()}
-  ${crabSvg.trim()}
 </svg>
 `.trim();
 
-  // Save SVG file
-  fs.writeFileSync(playroomSvgPath, playroomSvg, 'utf8');
-  console.log("playroom.svg generated successfully!");
-
-  // Construct updated widget content for README.md (minimalist, no description or tables)
-  const petWidgetMarkdown = `
-<div align="center">
-  <br />
-  <img src="assets/playroom.svg" width="800" alt="Pixel Playroom" />
-  <br />
-</div>
-`;
+  // Save SVG files
+  fs.writeFileSync(path.join(assetsDir, 'pet_cat.svg'), catSvgContent, 'utf8');
+  fs.writeFileSync(path.join(assetsDir, 'pet_dog.svg'), dogSvgContent, 'utf8');
+  fs.writeFileSync(path.join(assetsDir, 'pet_crab.svg'), crabSvgContent, 'utf8');
+  console.log("Individual pet SVGs generated successfully!");
 
   // Update README.md
   if (fs.existsSync(readmePath)) {
     let readmeContent = fs.readFileSync(readmePath, 'utf8');
-    const startTag = "<!-- START_SECTION:github-readme-pets -->";
-    const endTag = "<!-- END_SECTION:github-readme-pets -->";
 
-    const startIndex = readmeContent.indexOf(startTag);
-    const endIndex = readmeContent.indexOf(endTag);
-
-    if (startIndex === -1 || endIndex === -1) {
-      console.error("Could not find matching placeholders in README.md");
-      process.exit(1);
-    } else {
-      const before = readmeContent.substring(0, startIndex + startTag.length);
-      const after = readmeContent.substring(endIndex);
-      const updatedReadme = before + "\n" + petWidgetMarkdown.trim() + "\n" + after;
-      fs.writeFileSync(readmePath, updatedReadme, 'utf8');
-      console.log("README.md updated with new pet states!");
+    // 1. Cat Placeholder
+    const catStart = "<!-- START_SECTION:github-readme-pets-cat -->";
+    const catEnd = "<!-- END_SECTION:github-readme-pets-cat -->";
+    const catStartIndex = readmeContent.indexOf(catStart);
+    const catEndIndex = readmeContent.indexOf(catEnd);
+    if (catStartIndex !== -1 && catEndIndex !== -1) {
+      const before = readmeContent.substring(0, catStartIndex + catStart.length);
+      const after = readmeContent.substring(catEndIndex);
+      readmeContent = before + `\n<img align="right" src="assets/pet_cat.svg" width="100" alt="Luna the Cat" />\n` + after;
     }
+
+    // 2. Dog Placeholder
+    const dogStart = "<!-- START_SECTION:github-readme-pets-dog -->";
+    const dogEnd = "<!-- END_SECTION:github-readme-pets-dog -->";
+    const dogStartIndex = readmeContent.indexOf(dogStart);
+    const dogEndIndex = readmeContent.indexOf(dogEnd);
+    if (dogStartIndex !== -1 && dogEndIndex !== -1) {
+      const before = readmeContent.substring(0, dogStartIndex + dogStart.length);
+      const after = readmeContent.substring(dogEndIndex);
+      readmeContent = before + `\n<img align="right" src="assets/pet_dog.svg" width="100" alt="Buster the Dog" />\n` + after;
+    }
+
+    // 3. Crab Placeholder
+    const crabStart = "<!-- START_SECTION:github-readme-pets-crab -->";
+    const crabEnd = "<!-- END_SECTION:github-readme-pets-crab -->";
+    const crabStartIndex = readmeContent.indexOf(crabStart);
+    const crabEndIndex = readmeContent.indexOf(crabEnd);
+    if (crabStartIndex !== -1 && crabEndIndex !== -1) {
+      const before = readmeContent.substring(0, crabStartIndex + crabStart.length);
+      const after = readmeContent.substring(crabEndIndex);
+      readmeContent = before + `\n<img align="right" src="assets/pet_crab.svg" width="100" alt="Ferris the Crab" />\n` + after;
+    }
+
+    // Remove the old combined playroom section if it exists
+    const oldStart = "<!-- START_SECTION:github-readme-pets -->";
+    const oldEnd = "<!-- END_SECTION:github-readme-pets -->";
+    const oldStartIndex = readmeContent.indexOf(oldStart);
+    const oldEndIndex = readmeContent.indexOf(oldEnd);
+    if (oldStartIndex !== -1 && oldEndIndex !== -1) {
+      const before = readmeContent.substring(0, oldStartIndex);
+      const after = readmeContent.substring(oldEndIndex + oldEnd.length);
+      readmeContent = before + after;
+    }
+
+    fs.writeFileSync(readmePath, readmeContent, 'utf8');
+    console.log("README.md updated with segmented pet positions!");
   } else {
     console.error("README.md not found!");
     process.exit(1);
