@@ -2,8 +2,8 @@ name: GitHub Pets
 
 on:
   schedule:
-    - cron: "0 */6 * * *" # Tự động cập nhật mỗi 6 tiếng
-  workflow_dispatch: # Cho phép bạn bấm chạy thủ công bất cứ lúc nào
+    - cron: "0 */6 * * *" # Runs every 6 hours
+  workflow_dispatch: # Allows manual execution from the Actions tab
 
 jobs:
   update-readme:
@@ -12,16 +12,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Generate Pets
-        uses: readme-pets/github-actions-readme-pets@v1 # Đã cập nhật lại tên tổ chức mới ở đây
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          pets: "cat, dog, crab"
+          node-version: "18.x"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Update Pets in README
+        run: node update-pets.js
 
       - name: Commit & Push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
-          git commit -m "Update pets in README" || exit 0
+          git commit -m "chore: Update pixel readme pets activity" || exit 0
           git push

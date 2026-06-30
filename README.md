@@ -64,4 +64,36 @@
   <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=PhuThien2005&show_icons=true&locale=en&theme=radial" alt="GitHub Stats" />
 </p>
 <!-- START_SECTION:github-readme-pets -->
+<div align="center">
+  <h3>🏡 Welcome to the Pixel Playroom!</h3>
+  <p>Here are my tiny pixel friends who live in this README. They do random activities every time this page updates!</p>
+  <br />
+  <table border="0">
+    <tr>
+      <td align="center" width="180">
+        <img src="assets/cat.svg" width="64" height="64" alt="Cat" />
+        <br />
+        <strong>Luna</strong> (Cat)
+        <br />
+        <sub><i>is watching birds outside the window 🐦</i></sub>
+      </td>
+      <td align="center" width="180">
+        <img src="assets/dog_walk.gif" width="64" height="64" alt="Dog" />
+        <br />
+        <strong>Buster</strong> (Dog)
+        <br />
+        <sub><i>is happily walking around the yard 🐾</i></sub>
+      </td>
+      <td align="center" width="180">
+        <img src="assets/crab_idle.gif" width="64" height="64" alt="Crab" />
+        <br />
+        <strong>Ferris</strong> (Crab)
+        <br />
+        <sub><i>is waving its little pincers friendly ✌️</i></sub>
+      </td>
+    </tr>
+  </table>
+  <br />
+  <p><sub>Last updated: 15:27 30/06/2026 (GMT+7)</sub></p>
+</div>
 <!-- END_SECTION:github-readme-pets -->
