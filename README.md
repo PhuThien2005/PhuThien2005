@@ -1,6 +1,6 @@
 # Hi 👋, I'm Dang Phu Thien <!-- START_SECTION:github-readme-pets-duck --><img src="assets/pet_duck.svg" width="60" align="center" alt="Rubber Duck" /><!-- END_SECTION:github-readme-pets-duck -->
 
-A Software Engineering student at the **University of Information Technology (UIT)** with a strong interest in building scalable backend systems. Equipped with practical skills in Java, Spring Boot, RESTful APIs, and a proactive learning mindset. I am actively seeking a full-time internship opportunity to apply my knowledge and contribute to real-world projects.
+A Software Engineering student at the **University of Information Technology (UIT)** with a strong interest in building scalable backend systems, equipped with practical skills in Java, Spring Boot, and RESTful APIs.
 
 - 🌱 I'm currently learning **Java Spring Boot**
 
