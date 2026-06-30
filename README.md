@@ -57,11 +57,11 @@
 ### 📊 Thống kê hoạt động <!-- START_SECTION:github-readme-pets-panda --><img src="assets/pet_panda.svg" width="60" align="center" alt="Panda" /><!-- END_SECTION:github-readme-pets-panda -->
 
 <p align="center">
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs?username=PhuThien2005&show_icons=true&locale=en&layout=compact&include_orgs=true&count_private=true" alt="Top Langs" />
+  <img src="https://github-stats-extended-beta.vercel.app/api/top-langs?username=PhuThien2005&show_icons=true&locale=en&layout=compact&include_orgs=true&count_private=true" alt="Top Langs" />
 </p>
 [![GitHub Stats](https://github-stats-extended.vercel.app/api/top-langs?username=PhuThien2005&layout=donut&langs_count=5&theme=dark)](https://github-stats-extended.vercel.app/api/top-langs?username=PhuThien2005&layout=donut&langs_count=5&theme=dark)
 
 <p align="center">
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=PhuThien2005&show_icons=true&locale=en&theme=radial" alt="GitHub Stats" />
+  <img src="https://github-stats-extended-beta.vercel.app/api?username=PhuThien2005&show_icons=true&locale=en&theme=radial" alt="GitHub Stats" />
 </p>
 
