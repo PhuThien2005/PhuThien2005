@@ -66,23 +66,23 @@
 <!-- START_SECTION:github-readme-pets -->
 <div align="center">
   <h3>🏡 Welcome to the Pixel Playroom!</h3>
-  <p>Here are my tiny pixel friends walking around! They change their activities and movement speeds once in a while.</p>
+  <p>Here are my tiny pixel friends walking around! They automatically change their activities and movements every 15 seconds.</p>
   <br />
   <img src="assets/playroom.svg" width="800" alt="Pixel Playroom" />
   <br />
   
   <table>
     <tr>
-      <td>🐱 <b>Luna (Cat)</b> is watching birds outside the window 🐦</td>
+      <td>🐱 <b>Luna (Cat)</b> loves to explore the playroom, jump onto her shelf, and take quick naps.</td>
     </tr>
     <tr>
-      <td>🐶 <b>Buster (Dog)</b> is happily walking around the playroom 🐾</td>
+      <td>🐶 <b>Buster (Dog)</b> alternates between walking around, sitting for treats, sleeping, and playing fetch.</td>
     </tr>
     <tr>
-      <td>🦀 <b>Ferris (Crab)</b> is waving its little pincers friendly ✌️</td>
+      <td>🦀 <b>Ferris (Crab)</b> scuttles around sideways, waves his claws, and plays soccer with his ball.</td>
     </tr>
   </table>
   <br />
-  <p><sub>Last updated: 15:32 30/06/2026 (GMT+7)</sub></p>
+  <p><sub>Last updated: 15:35 30/06/2026 (GMT+7)</sub></p>
 </div>
 <!-- END_SECTION:github-readme-pets -->

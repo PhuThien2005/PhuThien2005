@@ -5,61 +5,6 @@ const readmePath = path.resolve('README.md');
 const assetsDir = path.resolve('assets');
 const playroomSvgPath = path.join(assetsDir, 'playroom.svg');
 
-const CAT_ACTIVITIES = [
-  "chasing a mysterious red laser dot 🔴",
-  "taking a cozy nap in the warm sun ☀️",
-  "playing with a colorful ball of yarn 🧶",
-  "stretching its tiny pixel paws 🐾",
-  "watching birds outside the window 🐦",
-  "grooming its beautiful pixel fur ✨"
-];
-
-const DOG_STATES = [
-  {
-    state: "walk",
-    gif: "dog_walk.gif",
-    activity: "happily walking around the playroom 🐾"
-  },
-  {
-    state: "idle",
-    gif: "dog_idle.gif",
-    activity: "sitting politely and waiting for a bone 🦴"
-  },
-  {
-    state: "lie",
-    gif: "dog_lie.gif",
-    activity: "fast asleep, dreaming about chasing squirrels 💤"
-  },
-  {
-    state: "ball",
-    gif: "dog_ball.gif",
-    activity: "happily playing fetch with a ball 🥎"
-  }
-];
-
-const CRAB_STATES = [
-  {
-    state: "walk",
-    gif: "crab_walk.gif",
-    activity: "crawling sideways across the floor 🦀"
-  },
-  {
-    state: "idle",
-    gif: "crab_idle.gif",
-    activity: "waving its little pincers friendly ✌️"
-  },
-  {
-    state: "run",
-    gif: "crab_run.gif",
-    activity: "scuttling fast like a speedster ⚡"
-  },
-  {
-    state: "ball",
-    gif: "crab_ball.gif",
-    activity: "clinging onto a tiny ball ⚽"
-  }
-];
-
 function getFormattedDateTime() {
   const options = {
     timeZone: 'Asia/Ho_Chi_Minh',
@@ -74,115 +19,154 @@ function getFormattedDateTime() {
 }
 
 function main() {
-  console.log("Generating SVG Playroom and updating README...");
+  console.log("Generating dynamic 15s switching SVG Playroom...");
 
-  // Randomize states and activities
-  const catActivity = CAT_ACTIVITIES[Math.floor(Math.random() * CAT_ACTIVITIES.length)];
-  const dogState = DOG_STATES[Math.floor(Math.random() * DOG_STATES.length)];
-  const crabState = CRAB_STATES[Math.floor(Math.random() * CRAB_STATES.length)];
+  // Read all assets as Base64 to embed them directly in the SVG
+  const catBase64 = fs.readFileSync(path.join(assetsDir, 'cat.svg'), 'base64');
+  
+  const dogWalkBase64 = fs.readFileSync(path.join(assetsDir, 'dog_walk.gif'), 'base64');
+  const dogIdleBase64 = fs.readFileSync(path.join(assetsDir, 'dog_idle.gif'), 'base64');
+  const dogLieBase64 = fs.readFileSync(path.join(assetsDir, 'dog_lie.gif'), 'base64');
+  const dogBallBase64 = fs.readFileSync(path.join(assetsDir, 'dog_ball.gif'), 'base64');
+
+  const crabWalkBase64 = fs.readFileSync(path.join(assetsDir, 'crab_walk.gif'), 'base64');
+  const crabIdleBase64 = fs.readFileSync(path.join(assetsDir, 'crab_idle.gif'), 'base64');
+  const crabRunBase64 = fs.readFileSync(path.join(assetsDir, 'crab_run.gif'), 'base64');
+  const crabBallBase64 = fs.readFileSync(path.join(assetsDir, 'crab_ball.gif'), 'base64');
+
   const lastUpdated = getFormattedDateTime();
 
-  // Read assets as Base64 to embed them directly in the SVG
-  const catBase64 = fs.readFileSync(path.join(assetsDir, 'cat.svg'), 'base64');
-  const dogBase64 = fs.readFileSync(path.join(assetsDir, dogState.gif), 'base64');
-  const crabBase64 = fs.readFileSync(path.join(assetsDir, crabState.gif), 'base64');
-
-  // Randomize movements
-  // Cat: walking range [50, 350]
-  const catDuration = Math.floor(Math.random() * 8) + 12; // 12s - 20s
-  const catXStart = Math.floor(Math.random() * 80) + 50;  // 50 - 130
-  const catXEnd = Math.floor(Math.random() * 100) + 250;  // 250 - 350
-
-  // Dog: walking range [200, 600]
-  const dogDuration = Math.floor(Math.random() * 8) + 12;
-  const dogXStart = Math.floor(Math.random() * 100) + 200; // 200 - 300
-  const dogXEnd = Math.floor(Math.random() * 150) + 450;   // 450 - 600
-
-  // Crab: walking range [400, 750]
-  const crabDuration = Math.floor(Math.random() * 6) + 8;  // 8s - 14s
-  const crabXStart = Math.floor(Math.random() * 100) + 400; // 400 - 500
-  const crabXEnd = Math.floor(Math.random() * 150) + 600;   // 600 - 750
-
-  // Construct SVG Elements with SMIL Animations
-  // Cat (Luna) - always walks
-  const catSvgElement = `
+  // 1. Cat (Luna) - 60s continuous 2D animation cycle (walks, jumps on shelf, sits, jumps down, walks back)
+  const catSvg = `
   <g>
+    <!-- Translate cat in 2D space: walks on ground, jumps to shelf (x: 250, y: 80), sits, jumps down, walks back -->
     <animateTransform attributeName="transform" type="translate" 
-      values="${catXStart + 32} 138; ${catXEnd + 32} 138; ${catXStart + 32} 138" 
-      dur="${catDuration}s" repeatCount="indefinite" />
+      values="82 138; 232 138; 282 80; 282 80; 312 138; 82 138" 
+      keyTimes="0; 0.25; 0.28; 0.58; 0.61; 1.0" 
+      dur="60s" repeatCount="indefinite" />
     <g>
+      <!-- Flip scale horizontal according to movement direction -->
       <animateTransform attributeName="transform" type="scale" 
-        values="1 1; 1 1; -1 1; -1 1; 1 1" 
-        keyTimes="0; 0.49; 0.50; 0.99; 1.0" 
-        dur="${catDuration}s" repeatCount="indefinite" />
+        values="1 1; 1 1; -1 1; -1 1; 1 1; 1 1; -1 1; -1 1; 1 1" 
+        keyTimes="0; 0.249; 0.25; 0.579; 0.58; 0.609; 0.61; 0.999; 1.0" 
+        dur="60s" repeatCount="indefinite" />
       <image href="data:image/svg+xml;base64,${catBase64}" x="-32" y="-32" width="64" height="64" />
     </g>
   </g>
   `;
 
-  // Dog (Buster) - walks if state is "walk", otherwise stays in place or plays
-  let dogSvgElement = "";
-  if (dogState.state === "walk") {
-    dogSvgElement = `
+  // 2. Dog (Buster) - 60s state switching (15s walk -> 15s idle -> 15s lie -> 15s ball)
+  const dogSvg = `
+  <!-- Phase 1: Walk (0s - 15s) -->
+  <g>
+    <animate attributeName="opacity" values="1;0;0" keyTimes="0;0.25;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
     <g>
       <animateTransform attributeName="transform" type="translate" 
-        values="${dogXStart + 32} 138; ${dogXEnd + 32} 138; ${dogXStart + 32} 138" 
-        dur="${dogDuration}s" repeatCount="indefinite" />
+        values="132 138; 432 138; 132 138" 
+        dur="15s" repeatCount="indefinite" />
       <g>
         <animateTransform attributeName="transform" type="scale" 
           values="1 1; 1 1; -1 1; -1 1; 1 1" 
           keyTimes="0; 0.49; 0.50; 0.99; 1.0" 
-          dur="${dogDuration}s" repeatCount="indefinite" />
-        <image href="data:image/gif;base64,${dogBase64}" x="-32" y="-32" width="64" height="64" />
+          dur="15s" repeatCount="indefinite" />
+        <image href="data:image/gif;base64,${dogWalkBase64}" x="-32" y="-32" width="64" height="64" />
       </g>
     </g>
-    `;
-  } else {
-    // Static state (sitting, sleeping, playing with ball)
-    dogSvgElement = `
-    <g transform="translate(${dogXStart + 32} 138)">
-      <image href="data:image/gif;base64,${dogBase64}" x="-32" y="-32" width="64" height="64" />
-    </g>
-    `;
-  }
+  </g>
 
-  // Crab (Ferris) - walks/runs if state is "walk" or "run", otherwise stays in place
-  let crabSvgElement = "";
-  if (crabState.state === "walk" || crabState.state === "run") {
-    const duration = crabState.state === "run" ? crabDuration / 1.5 : crabDuration;
-    crabSvgElement = `
+  <!-- Phase 2: Idle (15s - 30s) -->
+  <g transform="translate(432 138)">
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.25;0.50;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
+    <image href="data:image/gif;base64,${dogIdleBase64}" x="-32" y="-32" width="64" height="64" />
+  </g>
+
+  <!-- Phase 3: Lie Down/Sleep (30s - 45s) -->
+  <g transform="translate(332 138)">
+    <animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;0.50;0.75;0.7501;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
+    <image href="data:image/gif;base64,${dogLieBase64}" x="-32" y="-32" width="64" height="64" />
+  </g>
+
+  <!-- Phase 4: Play with Ball (45s - 60s) -->
+  <g transform="translate(532 138)">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.75;0.7501;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
+    <image href="data:image/gif;base64,${dogBallBase64}" x="-32" y="-32" width="64" height="64" />
+  </g>
+  `;
+
+  // 3. Crab (Ferris) - 60s state switching (15s walk -> 15s idle -> 15s run -> 15s ball)
+  const crabSvg = `
+  <!-- Phase 1: Walk (0s - 15s) -->
+  <g>
+    <animate attributeName="opacity" values="1;0;0" keyTimes="0;0.25;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
     <g>
       <animateTransform attributeName="transform" type="translate" 
-        values="${crabXStart + 32} 138; ${crabXEnd + 32} 138; ${crabXStart + 32} 138" 
-        dur="${duration}s" repeatCount="indefinite" />
+        values="432 138; 732 138; 432 138" 
+        dur="15s" repeatCount="indefinite" />
       <g>
         <animateTransform attributeName="transform" type="scale" 
           values="1 1; 1 1; -1 1; -1 1; 1 1" 
           keyTimes="0; 0.49; 0.50; 0.99; 1.0" 
-          dur="${duration}s" repeatCount="indefinite" />
-        <image href="data:image/gif;base64,${crabBase64}" x="-32" y="-32" width="64" height="64" />
+          dur="15s" repeatCount="indefinite" />
+        <image href="data:image/gif;base64,${crabWalkBase64}" x="-32" y="-32" width="64" height="64" />
       </g>
     </g>
-    `;
-  } else {
-    // Static state
-    crabSvgElement = `
-    <g transform="translate(${crabXStart + 32} 138)">
-      <image href="data:image/gif;base64,${crabBase64}" x="-32" y="-32" width="64" height="64" />
+  </g>
+
+  <!-- Phase 2: Idle (15s - 30s) -->
+  <g transform="translate(732 138)">
+    <animate attributeName="opacity" values="0;1;0;0" keyTimes="0;0.25;0.50;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
+    <image href="data:image/gif;base64,${crabIdleBase64}" x="-32" y="-32" width="64" height="64" />
+  </g>
+
+  <!-- Phase 3: Run (30s - 45s) -->
+  <g>
+    <animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;0.50;0.75;0.7501;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
+    <g>
+      <animateTransform attributeName="transform" type="translate" 
+        values="732 138; 232 138; 732 138" 
+        dur="5s" repeatCount="indefinite" />
+      <g>
+        <animateTransform attributeName="transform" type="scale" 
+          values="-1 1; -1 1; 1 1; 1 1; -1 1" 
+          keyTimes="0; 0.49; 0.50; 0.99; 1.0" 
+          dur="5s" repeatCount="indefinite" />
+        <image href="data:image/gif;base64,${crabRunBase64}" x="-32" y="-32" width="64" height="64" />
+      </g>
     </g>
-    `;
-  }
+  </g>
+
+  <!-- Phase 4: Soccer Ball (45s - 60s) -->
+  <g transform="translate(232 138)">
+    <animate attributeName="opacity" values="0;0;1;1" keyTimes="0;0.75;0.7501;1" calcMode="discrete" dur="60s" repeatCount="indefinite" />
+    <image href="data:image/gif;base64,${crabBallBase64}" x="-32" y="-32" width="64" height="64" />
+  </g>
+  `;
 
   // Build the complete animated SVG playroom banner
   const playroomSvg = `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="100%" height="200" style="background: transparent; font-family: monospace;">
+  <!-- Room background decorations -->
+  <!-- Cozy Rug -->
+  <ellipse cx="400" cy="170" rx="120" ry="14" fill="#808080" opacity="0.15" />
+  
+  <!-- Window -->
+  <rect x="480" y="30" width="80" height="60" fill="#add8e6" opacity="0.15" rx="4" />
+  <rect x="480" y="30" width="80" height="60" fill="none" stroke="#cccccc" stroke-width="2" opacity="0.4" rx="4" />
+  <line x1="520" y1="30" x2="520" y2="90" stroke="#cccccc" stroke-width="2" opacity="0.4" />
+  <line x1="480" y1="60" x2="560" y2="60" stroke="#cccccc" stroke-width="2" opacity="0.4" />
+
+  <!-- Ledge/Shelf for the Cat -->
+  <rect x="250" y="112" width="64" height="6" fill="#8B4513" opacity="0.5" rx="2" />
+  <line x1="260" y1="118" x2="260" y2="135" stroke="#8B4513" stroke-width="2" opacity="0.5" />
+  <line x1="304" y1="118" x2="304" y2="135" stroke="#8B4513" stroke-width="2" opacity="0.5" />
+
   <!-- Room floor line -->
   <line x1="0" y1="170" x2="800" y2="170" stroke="#cccccc" stroke-width="2" stroke-dasharray="8 6" opacity="0.6" />
   
   <!-- Pets -->
-  ${catSvgElement.trim()}
-  ${dogSvgElement.trim()}
-  ${crabSvgElement.trim()}
+  ${catSvg.trim()}
+  ${dogSvg.trim()}
+  ${crabSvg.trim()}
 </svg>
 `.trim();
 
@@ -194,20 +178,20 @@ function main() {
   const petWidgetMarkdown = `
 <div align="center">
   <h3>🏡 Welcome to the Pixel Playroom!</h3>
-  <p>Here are my tiny pixel friends walking around! They change their activities and movement speeds once in a while.</p>
+  <p>Here are my tiny pixel friends walking around! They automatically change their activities and movements every 15 seconds.</p>
   <br />
   <img src="assets/playroom.svg" width="800" alt="Pixel Playroom" />
   <br />
   
   <table>
     <tr>
-      <td>🐱 <b>Luna (Cat)</b> is ${catActivity}</td>
+      <td>🐱 <b>Luna (Cat)</b> loves to explore the playroom, jump onto her shelf, and take quick naps.</td>
     </tr>
     <tr>
-      <td>🐶 <b>Buster (Dog)</b> is ${dogState.activity}</td>
+      <td>🐶 <b>Buster (Dog)</b> alternates between walking around, sitting for treats, sleeping, and playing fetch.</td>
     </tr>
     <tr>
-      <td>🦀 <b>Ferris (Crab)</b> is ${crabState.activity}</td>
+      <td>🦀 <b>Ferris (Crab)</b> scuttles around sideways, waves his claws, and plays soccer with his ball.</td>
     </tr>
   </table>
   <br />
