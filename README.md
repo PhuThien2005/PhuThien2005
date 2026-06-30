@@ -56,9 +56,9 @@
 ### 📊 GitHub Statistics <!-- START_SECTION:github-readme-pets-panda --><img src="assets/pet_panda.svg" width="60" align="center" alt="Panda" /><!-- END_SECTION:github-readme-pets-panda -->
 
 <p align="center">
-  <img src="https://github-stats-extended-beta.vercel.app/api/top-langs?username=PhuThien2005&show_icons=true&locale=en&layout=compact&include_orgs=true&count_private=true&theme=radial" alt="Top Langs" />
+  <img src="https://github-stats-extended-beta.vercel.app/api/top-langs?username=PhuThien2005&show_icons=true&locale=en&layout=compact&include_orgs=true&count_private=true&theme=radical" alt="Top Langs" />
 </p>
 
 <p align="center">
-  <img src="https://github-stats-extended-beta.vercel.app/api?username=PhuThien2005&show_icons=true&locale=en&theme=radial&include_all_commits=true" alt="GitHub Stats" />
+  <img src="https://github-stats-extended-beta.vercel.app/api?username=PhuThien2005&show_icons=true&locale=en&theme=radical&include_all_commits=true" alt="GitHub Stats" />
 </p>
