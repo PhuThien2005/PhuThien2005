@@ -1,4 +1,6 @@
-# Hi 👋, I'm Dang Phu Thien <!-- START_SECTION:github-readme-pets-duck --><img src="assets/pet_duck.svg" width="60" align="center" alt="Rubber Duck" /><!-- END_SECTION:github-readme-pets-duck -->
+# Dang Phu Thien <!-- START_SECTION:github-readme-pets-duck --><img src="assets/pet_duck.svg" width="60" align="center" alt="Rubber Duck" /><!-- END_SECTION:github-readme-pets-duck -->
+
+### 👤 About Me
 
 A Software Engineering student at the **University of Information Technology (UIT)** with a strong interest in building scalable backend systems, equipped with practical skills in Java, Spring Boot, and RESTful APIs.
 
