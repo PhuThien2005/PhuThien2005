@@ -5,21 +5,8 @@ const readmePath = path.resolve('README.md');
 const assetsDir = path.resolve('assets');
 const playroomSvgPath = path.join(assetsDir, 'playroom.svg');
 
-function getFormattedDateTime() {
-  const options = {
-    timeZone: 'Asia/Ho_Chi_Minh',
-    hour12: false,
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit'
-  };
-  return new Date().toLocaleString('vi-VN', options);
-}
-
 function main() {
-  console.log("Generating dynamic 15s switching SVG Playroom...");
+  console.log("Generating dynamic 15s switching SVG Playroom (minimalist)...");
 
   // Read all assets as Base64 to embed them directly in the SVG
   const catBase64 = fs.readFileSync(path.join(assetsDir, 'cat.svg'), 'base64');
@@ -33,8 +20,6 @@ function main() {
   const crabIdleBase64 = fs.readFileSync(path.join(assetsDir, 'crab_idle.gif'), 'base64');
   const crabRunBase64 = fs.readFileSync(path.join(assetsDir, 'crab_run.gif'), 'base64');
   const crabBallBase64 = fs.readFileSync(path.join(assetsDir, 'crab_ball.gif'), 'base64');
-
-  const lastUpdated = getFormattedDateTime();
 
   // 1. Cat (Luna) - 60s continuous 2D animation cycle (walks, jumps on shelf, sits, jumps down, walks back)
   const catSvg = `
@@ -174,28 +159,12 @@ function main() {
   fs.writeFileSync(playroomSvgPath, playroomSvg, 'utf8');
   console.log("playroom.svg generated successfully!");
 
-  // Construct updated widget content for README.md
+  // Construct updated widget content for README.md (minimalist, no description or tables)
   const petWidgetMarkdown = `
 <div align="center">
-  <h3>🏡 Welcome to the Pixel Playroom!</h3>
-  <p>Here are my tiny pixel friends walking around! They automatically change their activities and movements every 15 seconds.</p>
   <br />
   <img src="assets/playroom.svg" width="800" alt="Pixel Playroom" />
   <br />
-  
-  <table>
-    <tr>
-      <td>🐱 <b>Luna (Cat)</b> loves to explore the playroom, jump onto her shelf, and take quick naps.</td>
-    </tr>
-    <tr>
-      <td>🐶 <b>Buster (Dog)</b> alternates between walking around, sitting for treats, sleeping, and playing fetch.</td>
-    </tr>
-    <tr>
-      <td>🦀 <b>Ferris (Crab)</b> scuttles around sideways, waves his claws, and plays soccer with his ball.</td>
-    </tr>
-  </table>
-  <br />
-  <p><sub>Last updated: ${lastUpdated} (GMT+7)</sub></p>
 </div>
 `;
 
