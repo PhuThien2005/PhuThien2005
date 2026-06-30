@@ -83,3 +83,13 @@ A Software Engineering student at the **University of Information Technology (UI
 <p align="center">
   <img src="https://github-stats-extended-beta.vercel.app/api?username=PhuThien2005&show_icons=true&locale=en&theme=radical&include_all_commits=true&hide_rank=true" alt="GitHub Stats" />
 </p>
+
+---
+
+## 🕹️ Contribution Arcade (Pac-Man)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PhuThien2005/PhuThien2005/output/pacman-contribution-graph-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/PhuThien2005/PhuThien2005/output/pacman-contribution-graph.svg">
+  <img alt="Pac-Man contribution graph" src="https://raw.githubusercontent.com/PhuThien2005/PhuThien2005/output/pacman-contribution-graph.svg" width="100%">
+</picture>
