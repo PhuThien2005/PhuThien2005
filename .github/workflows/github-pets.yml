@@ -1,0 +1,28 @@
+name: GitHub Pets
+
+on:
+  schedule:
+    - cron: "0 */6 * * *" # Tự động cập nhật mỗi 6 tiếng
+  workflow_dispatch: # Cho phép bạn bấm chạy thủ công bất cứ lúc nào
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Generate Pets
+        uses: sebyddd/github-actions-readme-pets@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Danh sách thú cưng bạn muốn nuôi (Xem cách tùy chỉnh ở dưới)
+          pets: "cat, dog, crab" 
+
+      - name: Commit & Push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "Update pets in README" || exit 0
+          git push
