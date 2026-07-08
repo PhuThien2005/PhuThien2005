@@ -19,14 +19,14 @@ A Software Engineering student at the **University of Information Technology (UI
 
 **University of Information Technology (UIT) - VNUHCM** _(Sep. 2023 - 2027)_
 * Major: **Software Engineering**
-* GPA: **8.91 / 10**
+* GPA: **[8.91 / 10](https://drive.google.com/file/d/14r_amGAg4YAsAyJikaWp9Tz8JaL044Al/view?usp=sharing)**
 
 ---
 
 ## 🏆 Certificates & Achievements
 
-* **TOEIC 940** (Listening & Reading Test - IIG Vietnam, Mar 2026)
-* **Foundations of User Experience (UX) Design** (Google, May 2026)
+* **[TOEIC 940](https://drive.google.com/file/d/1AFur2Xyf-9jrZ83xns2LQqYQgpohrITn/view?usp=sharing)** (Listening & Reading Test - IIG Vietnam, Mar 2026)
+* **[Foundations of User Experience (UX) Design](https://drive.google.com/file/d/12V7l3pR-OSeHsGhfGWnuK5XJV0KaLfq9/view?usp=sharing)** (Google, May 2026)
 * **Academic Encouragement Scholarship** - UIT (Awarded for 2 semesters)
 
 ---
