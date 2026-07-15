@@ -83,7 +83,7 @@ A Software Engineering student at the **University of Information Technology (UI
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=PhuThien2005&theme=radical&date_format=j%2Fn%5B%2FY%5D" alt="GitHub Streak" />
+  <img src="https://streak-stats.demolab.com/?user=PhuThien2005&theme=radical&hide_border=true" alt="GitHub Streak" />
 </p>
 
 <p align="center">
