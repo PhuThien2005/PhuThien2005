@@ -19,7 +19,7 @@ A Software Engineering student at the **University of Information Technology (UI
 
 **University of Information Technology (UIT) - VNUHCM** _(Sep. 2023 - 2027)_
 * Major: **Software Engineering**
-* GPA: **[8.91 / 10](https://drive.google.com/file/d/14r_amGAg4YAsAyJikaWp9Tz8JaL044Al/view?usp=sharing)**
+* GPA: **[8.92 / 10](https://drive.google.com/file/d/14r_amGAg4YAsAyJikaWp9Tz8JaL044Al/view?usp=sharing)**
 
 ---
 
